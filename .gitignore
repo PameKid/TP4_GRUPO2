@@ -1,0 +1,31 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Archivos compilados
+bin/
+build/
+target/
+
+# Maven / Gradle
+.mvn/
+.gradle/
+*.class
+*.jar
+*.war
+*.ear
+
+# Tomcat / servidores
+.metadata/
+Servers/
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Temporales
+*.tmp
+*.bak
+*.swp
