@@ -12,9 +12,9 @@ target/
 .mvn/
 .gradle/
 *.class
-*.jar
-*.war
-*.ear
+# *.jar
+# *.war
+# *.ear
 
 # Tomcat / servidores
 .metadata/
