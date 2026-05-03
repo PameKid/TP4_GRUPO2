@@ -29,3 +29,8 @@ Thumbs.db
 *.tmp
 *.bak
 *.swp
+
+# VS Code (Solo para Sebastian, no afecta a Eclipse)
+.vscode/
+PASO_*.bat
+README_VS_CODE.md
