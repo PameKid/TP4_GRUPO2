@@ -3,7 +3,7 @@ package entidades;
 public class Seguro {
 	int idSeguro;
 	String descripcion;
-	int tipoSeguro;
+	TipoSeguro tipoSeguro;
 	double costoContratacion;
 	double costoMaximoAsegurado;
 
@@ -12,7 +12,7 @@ public class Seguro {
 	}
 
 	/** Constructor parametrizado con todos los datos **/
-	public Seguro(int idSeguro, String descripcion, int tipoSeguro, double costoContratacion,
+	public Seguro(int idSeguro, String descripcion, TipoSeguro tipoSeguro, double costoContratacion,
 			double costoMaximoAsegurado) {
 		this.idSeguro = idSeguro;
 		this.descripcion = descripcion;
@@ -43,11 +43,11 @@ public class Seguro {
 		this.descripcion = descripcion;
 	}
 
-	public int getTipoSeguro() {
+	public TipoSeguro getTipoSeguro() {
 		return tipoSeguro;
 	}
 
-	public void setTipoSeguro(int tipoSeguro) {
+	public void setTipoSeguro(TipoSeguro tipoSeguro) {
 		this.tipoSeguro = tipoSeguro;
 	}
 
