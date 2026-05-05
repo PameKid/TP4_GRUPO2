@@ -1,6 +1,8 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import entidades.Seguro;
 
 public class SeguroDao {
@@ -29,4 +31,27 @@ public class SeguroDao {
 
 		return filas;
 	}
+
+	/** Método para obtener el último id de la base de datos**/
+	public int obtenerProximoId() throws Exception {
+		int proximoId = 1;
+		String query = "SELECT MAX(idSeguro) AS max_id FROM seguros";
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		try {
+			pst = Conexion.getInstancia().getConnection().prepareStatement(query);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				proximoId = rs.getInt("max_id") + 1;
+			}
+		} finally {
+			if (rs != null)
+				rs.close();
+			if (pst != null)
+				pst.close();
+		}
+		return proximoId;
+	}
+
 }

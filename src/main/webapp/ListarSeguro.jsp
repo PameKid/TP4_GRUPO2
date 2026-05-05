@@ -1,8 +1,8 @@
-<%@ page import="java.util.List" %>
-<%@ page import="entidades.Seguro" %>
-<%@ page import="entidades.TipoSeguro" %>
+<%@ page import="java.util.List"%>
+<%@ page import="entidades.Seguro"%>
+<%@ page import="entidades.TipoSeguro"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,74 +12,79 @@
 </head>
 <body>
 
-<nav>
-    <a href="Inicio.jsp">Inicio</a> |
-    <a href="AgregarSeguroServlet">AgregarSeguros</a> |
-    <a href="ListarSegurosServlet">ListarSeguros</a>
-</nav>
+	<nav>
+		<a href="Inicio.jsp">Inicio</a> | <a href="AgregarSeguroServlet">AgregarSeguros</a>
+		| <a href="ListarSegurosServlet">ListarSeguros</a>
+	</nav>
 
-<hr>
+	<hr>
 
-<h1>Listado de Seguros</h1>
+	<h1>Listado de Seguros</h1>
 
-<form action="ListarSegurosServlet" method="get">
-    <label>Filtrar por tipo:</label>
-    <select name="idTipoSeguro">
-        <option value="0">Todos</option>
+	<%
+	String error = (String) request.getAttribute("error");
+	if (error != null) {
+	%>
+	<p style="color: red;"><%=error%></p>
+	<%
+	}
+	%>
 
-        <%
-            List<TipoSeguro> listaTipos = (List<TipoSeguro>) request.getAttribute("listaTipos");
+	<form action="ListarSegurosServlet" method="get">
+		<label>Filtrar por tipo:</label> <select name="idTipoSeguro">
+			<option value="0">Todos</option>
 
-            if (listaTipos != null) {
-                for (TipoSeguro tipo : listaTipos) {
-        %>
-            <option value="<%= tipo.getIdTipoSeguro() %>">
-                <%= tipo.getDescripcionTipoSeguro() %>
-            </option>
-        <%
-                }
-            }
-        %>
-    </select>
+			<%
+			List<TipoSeguro> listaTipos = (List<TipoSeguro>) request.getAttribute("listaTipos");
 
-    <input type="submit" value="Filtrar">
-</form>
+			if (listaTipos != null) {
+				for (TipoSeguro tipo : listaTipos) {
+			%>
+			<option value="<%=tipo.getIdTipoSeguro()%>">
+				<%=tipo.getDescripcionTipoSeguro()%>
+			</option>
+			<%
+			}
+			}
+			%>
+		</select> <input type="submit" value="Filtrar">
+	</form>
 
-<br>
+	<br>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Descripción</th>
-        <th>Tipo</th>
-        <th>Costo contratación</th>
-        <th>Costo máximo asegurado</th>
-    </tr>
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>Descripción</th>
+			<th>Tipo</th>
+			<th>Costo contratación</th>
+			<th>Costo máximo asegurado</th>
+		</tr>
 
-    <%
-        List<Seguro> lista = (List<Seguro>) request.getAttribute("listaSeguros");
+		<%
+		List<Seguro> lista = (List<Seguro>) request.getAttribute("listaSeguros");
 
-        if (lista != null && !lista.isEmpty()) {
-            for (Seguro s : lista) {
-    %>
-        <tr>
-            <td><%= s.getIdSeguro() %></td>
-            <td><%= s.getDescripcion() %></td>
-            <td><%= s.getTipoSeguro().getDescripcionTipoSeguro() %></td>
-            <td><%= s.getCostoContratacion() %></td>
-            <td><%= s.getCostoMaximoAsegurado() %></td>
-        </tr>
-    <%
-            }
-        } else {
-    %>
-        <tr>
-            <td colspan="5">No hay datos</td>
-        </tr>
-    <%
-        }
-    %>
-</table>
+		if (lista != null && !lista.isEmpty()) {
+			for (Seguro s : lista) {
+		%>
+		<tr>
+			<td><%=s.getIdSeguro()%></td>
+			<td><%=s.getDescripcion()%></td>
+			<td><%=s.getTipoSeguro().getDescripcionTipoSeguro()%></td>
+			<td><%=s.getCostoContratacion()%></td>
+			<td><%=s.getCostoMaximoAsegurado()%></td>
+		</tr>
+		<%
+		}
+		} else {
+		%>
+		<tr>
+			<td colspan="5">No hay datos</td>
+		</tr>
+		<%
+		}
+		%>
+	</table>
 
 </body>
 </html>

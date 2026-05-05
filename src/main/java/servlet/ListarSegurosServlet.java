@@ -43,8 +43,7 @@ public class ListarSegurosServlet extends HttpServlet {
 				ArrayList<TipoSeguro> listaTipos = datos.listarTiposSeguros();
 				request.setAttribute("listaTipos", listaTipos);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				request.setAttribute("error", "Ocurrió un error al cargar los tipos de seguro.");
 			}
 			
 		}
@@ -56,8 +55,7 @@ public class ListarSegurosServlet extends HttpServlet {
 			try {
 				listaSeguros = datos.listarSeguros();
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				request.setAttribute("error", "Ocurrió un error al cargar la lista de seguros.");
 			}
 		    request.setAttribute("listaSeguros", listaSeguros);
 		    RequestDispatcher rd = request.getRequestDispatcher("/ListarSeguro.jsp");   
@@ -67,8 +65,7 @@ public class ListarSegurosServlet extends HttpServlet {
 			try {
 				listaSeguros = datos.listarSegurosPorTipo(Integer.parseInt(idTipo));
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				request.setAttribute("error", "Ocurrió un error al filtrar los seguros.");
 			}
 		    request.setAttribute("listaSeguros", listaSeguros);
 		    RequestDispatcher rd = request.getRequestDispatcher("/ListarSeguro.jsp");   

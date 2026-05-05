@@ -16,7 +16,7 @@
 
 <hr>
 
-<h1>Página inicio</h1>
+<h1>Soy la Página inicio</h1>
 
 </body>
 </html>
