@@ -6,15 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-
 import entidades.Seguro;
 import entidades.TipoSeguro;
 
 public class TipoSeguroDao {
 
-    public List<TipoSeguro> listarTiposSeguros() {
-        List<TipoSeguro> tipos = new ArrayList<TipoSeguro>();
+    public ArrayList<TipoSeguro> listarTiposSeguros() {
+    	ArrayList<TipoSeguro> tipos = new ArrayList<TipoSeguro>();
         String sql = "SELECT idTipo, descripcion FROM tipoSeguros";
 
         try {
@@ -38,8 +36,8 @@ public class TipoSeguroDao {
         return tipos;
     }
     
-    public List<Seguro> listarSeguros() throws Exception{
-        List<Seguro> lista = new ArrayList<>();
+    public ArrayList<Seguro> listarSeguros() throws Exception{
+        ArrayList<Seguro> lista = new ArrayList<>();
         String sql = "SELECT s.idSeguro, s.descripcion, s.idTipo, s.costoContratacion, s.costoAsegurado, " +
                      "t.descripcion AS tipoDescripcion " +
                      "FROM seguros s " +
@@ -77,8 +75,8 @@ public class TipoSeguroDao {
         return lista;
     }
     
-    public List<Seguro> listarSegurosPorTipo(int idTipo) throws Exception {
-        List<Seguro> lista = new ArrayList<>();
+    public ArrayList<Seguro> listarSegurosPorTipo(int idTipo) throws Exception {
+    	ArrayList<Seguro> lista = new ArrayList<>();
 
         String sql = "SELECT s.idSeguro, s.descripcion, s.idTipo, s.costoContratacion, s.costoAsegurado, " +
                      "t.descripcion AS tipoDescripcion " +

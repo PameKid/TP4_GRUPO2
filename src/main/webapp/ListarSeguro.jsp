@@ -15,14 +15,14 @@
 <nav>
     <a href="Inicio.jsp">Inicio</a> |
     <a href="AgregarSeguroServlet">AgregarSeguros</a> |
-    <a href="listarSegurosServlet">ListarSeguros</a>
+    <a href="ListarSegurosServlet">ListarSeguros</a>
 </nav>
 
 <hr>
 
 <h1>Listado de Seguros</h1>
 
-<form action="listarSegurosServlet" method="get">
+<form action="ListarSegurosServlet" method="get">
     <label>Filtrar por tipo:</label>
     <select name="idTipoSeguro">
         <option value="0">Todos</option>

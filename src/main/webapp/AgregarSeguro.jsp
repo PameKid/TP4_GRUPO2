@@ -11,8 +11,8 @@
 <body>
 
 <a href="Inicio.jsp">Inicio</a> |
-<a href="agregarSeguroServlet">AgregarSeguro</a> |
-<a href="listarSegurosServlet">ListarSeguros</a>
+<a href="AgregarSeguroServlet">AgregarSeguro</a> |
+<a href="ListarSegurosServlet">ListarSeguros</a>
 
 <hr>
 
