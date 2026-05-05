@@ -4,10 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Inicio</title>
 </head>
 <body>
 
- <h1> Página de inicio </h1>
+<nav>
+    <a href="Inicio.jsp">Inicio</a> |
+    <a href="AgregarSeguroServlet">AgregarSeguros</a> |
+    <a href="listarSegurosServlet">ListarSeguros</a>
+</nav>
+
+<hr>
+
+<h1>Página inicio</h1>
+
 </body>
 </html>
